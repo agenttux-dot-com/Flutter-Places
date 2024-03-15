@@ -23,6 +23,7 @@ class PlaceDetails {
 
 class Result {
   List<AddressComponents>? addressComponents;
+  List<Period>? periods;
   String? adrAddress;
   String? formattedAddress;
   Geometry? geometry;
@@ -40,6 +41,7 @@ class Result {
 
   Result(
       {this.addressComponents,
+       this.periods,
       this.adrAddress,
       this.formattedAddress,
       this.geometry,
@@ -60,6 +62,12 @@ class Result {
       addressComponents = [];
       json['address_components'].forEach((v) {
         addressComponents!.add(new AddressComponents.fromJson(v));
+      });
+    }
+    if (json['opening_hours'] != null && json['opening_hours']["periods"] != null) {
+      periods = [];
+      json['opening_hours']["periods"].forEach((v) {
+        periods!.add(Period.fromJson(v));
       });
     }
     adrAddress = json['adr_address'];
