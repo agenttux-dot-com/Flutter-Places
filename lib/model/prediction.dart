@@ -35,6 +35,8 @@ class Prediction {
   List<String>? types;
   String? lat;
   String? lng;
+  List<Period>? periods;
+  List<AddressComponents>? addressComponents;
 
   Prediction(
       {this.description,
@@ -46,7 +48,9 @@ class Prediction {
       this.terms,
       this.types,
       this.lat,
-      this.lng});
+      this.lng,
+      this.addressComponents,
+      this.periods});
 
   Prediction.fromJson(Map<String, dynamic> json) {
     description = json['description'];
