@@ -1,3 +1,5 @@
+import 'package:google_places_flutter/model/place_details.dart';
+
 class PlacesAutocompleteResponse {
   List<Prediction>? predictions;
   String? status;
