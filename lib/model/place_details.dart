@@ -113,6 +113,32 @@ class Result {
   }
 }
 
+class Period {
+  DayTime? open;
+  DayTime? close;
+
+  Period({this.open, this.close});
+
+  Period.fromJson(Map<String, dynamic> json) {
+    
+      open = json['open'] != null ? DayTime.fromJson(json['open']) : null;
+      close = json['close'] != null ? DayTime.fromJson(json['close']) : null;
+
+  }
+}
+
+class DayTime {
+  int? day;
+  String? time;
+
+  DayTime({this.day, this.time});
+
+  DayTime.fromJson(Map<String, dynamic> json) {
+      day = json['day'];
+      time = json['time'];
+  }
+}
+
 class AddressComponents {
   String? longName;
   String? shortName;
